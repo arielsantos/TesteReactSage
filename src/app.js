@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import AppRouter from './routers/AppRouter';
 
-const template = <p>THIS IS JSX FROM WEBPACK</p>;
 ReactDOM.render(template, document.getElementById('app'));
+const jsx = (
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
+  );
+  
+  ReactDOM.render(jsx, document.getElementById('app'));
