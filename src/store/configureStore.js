@@ -1,17 +1,16 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-// import expensesReducer from '../reducers/expenses';
-// import filtersReducer from '../reducers/filters';
+import pessoasReducer from '../reducers/pessoas';
+import filtersReducer from '../reducers/filters';
 
-const middlewares = [thunk];
 
 export default () => {
   const store = createStore(
     combineReducers({
-    //   expenses: expensesReducer,
-    //   filters: filtersReducer
+       pessoas: pessoasReducer,
+       filters: filtersReducer
     }),
-    applyMiddleware(middlewares)
+    applyMiddleware(thunk)
   );
 
   return store;
